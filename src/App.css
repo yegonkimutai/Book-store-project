@@ -1,0 +1,14 @@
+.App {
+  margin: 0%;
+  padding: 0%;
+}
+
+body {
+  background-color: gainsboro;
+}
+
+.book-sheet {
+  border: 1px solid white;
+  margin: 3rem;
+  background-color: white;
+}

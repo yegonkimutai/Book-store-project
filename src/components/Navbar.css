@@ -1,0 +1,27 @@
+.navbar {
+  padding: 2rem;
+  margin-left: 1rem;
+  display: flex;
+  gap: 1rem;
+  text-align: center;
+  border-bottom: 1px solid gainsboro;
+}
+
+nav ul a {
+  color: black;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.nav-title {
+  color: #0290ff;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+}
