@@ -71,7 +71,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone https://github.com/yegonkimutai/Book-store.git
+  git clone https://github.com/yegonkimutai/Book-store-project.git
 ```
 
 ### Install
@@ -79,7 +79,7 @@ Clone this repository to your desired folder:
 Install this project with:
 
 ```sh
-  cd book-store
+  cd book-store-project
   yarn install
 ```
 
