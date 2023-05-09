@@ -1,23 +1,23 @@
 import { useState } from 'react';
-import { addBook } from '../redux/books/booksSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { addBook } from '../redux/books/booksSlice';
 import './NewBook.css';
 
 const AddBook = () => {
-  const dispatch = useDispatch()
-  const books = useSelector((state) => state.books.books)
-  const [title, setTitle] = useState('')
-  const [author, setAuthor] = useState ('')
+  const dispatch = useDispatch();
+  const books = useSelector((state) => state.books.books);
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
 
   const submit = (e) => {
     e.preventDefault();
 
-    const id = books.length + 1
+    const id = books.length + 1;
 
-    dispatch(addBook({ item_id: `item${id}`, title, author }));
-    setTitle('')
-    setAuthor('')
-  }
+    dispatch(addBook({ id: `item${id}`, title, author }));
+    setTitle('');
+    setAuthor('');
+  };
 
   return (
     <div className="book-list">
