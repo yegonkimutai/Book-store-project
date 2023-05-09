@@ -1,15 +1,10 @@
 import AddBook from './NewBook';
 import Book from './Book';
-import {  useSelector, useDispatch } from "react-redux";
-import { removeBook } from '../redux/books/booksSlice';
+import {  useSelector } from "react-redux";
 
 const BookList = () => {
-  let dispatch = useDispatch()
   const books = useSelector((state) => state.books.books)
 
-  const deleteBk = (e) => {
-    dispatch(removeBook(e.target.id));
-  }
   return(
     <div>
       <div>
@@ -21,7 +16,6 @@ const BookList = () => {
           category={book.category}
           title={book.title}
           author={book.author}
-          onClick={deleteBk} 
            />)
         })}
       </div>
