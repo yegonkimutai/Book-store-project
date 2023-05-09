@@ -1,25 +1,23 @@
 import { useState } from 'react';
+import { addBook } from '../redux/books/booksSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import './NewBook.css';
 
 const AddBook = () => {
-  const [book, setBook] = useState({
-    title: '',
-    category: '',
-  });
+  const dispatch = useDispatch()
+  const books = useSelector((state) => state.books.books)
+  const [title, setTitle] = useState('')
+  const [author, setAuthor] = useState ('')
 
-  const change = (event) => {
-    setBook((book) => ({
-      ...book,
-      [event.target.name]: event.target.value,
-    }));
-  };
+  const submit = (e) => {
+    e.preventDefault();
 
-  const sections = ['Action', 'Economy', 'Science Fiction'];
-  const bookOptions = sections.map((section) => (
-    <option key={section} value={section}>
-      {section}
-    </option>
-  ));
+    const id = books.length + 1
+
+    dispatch(addBook({ item_id: `item${id}`, title, author }));
+    setTitle('')
+    setAuthor('')
+  }
 
   return (
     <div className="book-list">
@@ -29,19 +27,19 @@ const AddBook = () => {
           className="book-entry"
           type="text"
           placeholder="Book title"
-          onChange={change}
-          value={book.title}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
 
-        <select
-          className="book-cat"
-          value={book.category}
-          onChange={change}
-        >
-          {bookOptions}
-        </select>
+        <input
+          className="book-entry"
+          type="text"
+          placeholder="Author"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
 
-        <button type="submit" className="add-btn">
+        <button type="submit" className="add-btn" onClick={submit}>
           ADD BOOK
         </button>
       </form>

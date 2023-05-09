@@ -1,43 +1,35 @@
 import AddBook from './NewBook';
 import Book from './Book';
+import {  useSelector, useDispatch } from "react-redux";
+import { removeBook } from '../redux/books/booksSlice';
 
-const bookList = [
-  {
-    section: 'Action',
-    title: 'The Hunger Games',
-    author: 'Suzanne Collins',
-  },
+const BookList = () => {
+  let dispatch = useDispatch()
+  const books = useSelector((state) => state.books.books)
 
-  {
-    section: 'Science Fiction',
-    title: 'Dune',
-    author: 'Frank Herbert',
-  },
-
-  {
-    section: 'Economy',
-    title: 'Capital in the Twenty-First Century',
-    author: 'Suzanne Collins',
-  },
-];
-
-const BookList = () => (
-  <div>
+  const deleteBk = (e) => {
+    dispatch(removeBook(e.target.id));
+  }
+  return(
     <div>
-      {bookList.map((book) => (
-        <div key={book.title}>
-          <Book
-            section={book.section}
-            title={book.title}
-            author={book.author}
-          />
-        </div>
-      ))}
+      <div>
+        {books.map((book) => {
+          return (
+          <Book 
+          key={book.item_id}
+          item_id={book.item_id}
+          category={book.category}
+          title={book.title}
+          author={book.author}
+          onClick={deleteBk} 
+           />)
+        })}
+      </div>
+      <div>
+        <AddBook />
+      </div>
     </div>
-    <div>
-      <AddBook />
-    </div>
-  </div>
-);
+  );
+}
 
 export default BookList;
