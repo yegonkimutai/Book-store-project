@@ -8,19 +8,16 @@ const BookList = () => {
   return (
     <div>
       <div>
-        {books.map((book) => (
+        {books && Array.from(books).map((book) => (
           <Book
-            key={book.id}
-            id={book.id}
-            category={book.category}
+            key={book.item_id}
             title={book.title}
             author={book.author}
+            id={book.item_id}
           />
         ))}
       </div>
-      <div>
-        <AddBook />
-      </div>
+      <AddBook />
     </div>
   );
 };
