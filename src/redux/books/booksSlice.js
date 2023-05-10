@@ -85,7 +85,6 @@ const bookList = createSlice({
         const newBooks = state.books.filter((book) => book.item_id !== action.meta.arg);
 
         return {
-          ...state,
           books: newBooks,
         };
       })
