@@ -1,20 +1,19 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addBook } from '../redux/books/booksSlice';
+import { useDispatch} from 'react-redux';
+// import { addBook } from '../redux/books/booksSlice';
+import { addBooks } from '../redux/books/booksSlice';
+import { v4 as uuidv4 } from 'uuid';
 import './NewBook.css';
 
 const AddBook = () => {
   const dispatch = useDispatch();
-  const books = useSelector((state) => state.books.books);
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
 
   const submit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    const id = books.length + 1;
-
-    dispatch(addBook({ id: `item${id}`, title, author }));
+    dispatch(addBooks({ item_id: uuidv4(), title, author, "category": "" }));
     setTitle('');
     setAuthor('');
   };
@@ -29,6 +28,7 @@ const AddBook = () => {
           placeholder="Book title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          required
         />
 
         <input
@@ -37,6 +37,7 @@ const AddBook = () => {
           placeholder="Author"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
+          required
         />
 
         <button type="submit" className="add-btn" onClick={submit}>
