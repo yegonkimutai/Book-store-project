@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Navbar from './components/Navbar';
 import BookList from './components/BookList';
 import Category from './components/Category';
-import { useDispatch } from 'react-redux';
 import { fetchBooks } from './redux/books/booksSlice';
 
 function App() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchBooks());

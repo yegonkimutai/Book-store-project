@@ -1,14 +1,14 @@
 import { PropTypes } from 'prop-types';
-import { removeABook } from '../redux/books/booksSlice';
 import { useDispatch } from 'react-redux';
+import { removeABook } from '../redux/books/booksSlice';
 
 import './Book.css';
 
 const Book = ({
-  id, title, author
+  id, title, author,
 }) => {
-  const dispatch = useDispatch()
-  
+  const dispatch = useDispatch();
+
   return (
     <div className="single-book" key={id}>
       <h2>{title}</h2>

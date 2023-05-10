@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import { addBook } from '../redux/books/booksSlice';
-import { addBooks } from '../redux/books/booksSlice';
 import { v4 as uuidv4 } from 'uuid';
+import { addBooks } from '../redux/books/booksSlice';
 import './NewBook.css';
 
 const AddBook = () => {
@@ -11,9 +11,11 @@ const AddBook = () => {
   const [author, setAuthor] = useState('');
 
   const submit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    dispatch(addBooks({ item_id: uuidv4(), title, author, "category": "" }));
+    dispatch(addBooks({
+      item_id: uuidv4(), title, author, category: '',
+    }));
     setTitle('');
     setAuthor('');
   };
