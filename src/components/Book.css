@@ -16,7 +16,7 @@
   color: #4386bf;
   background-color: #fff;
   border-radius: 3px;
-  padding: .5rem;
+  padding: 0.5rem;
   border: none;
   font-size: 1rem;
 }
@@ -44,7 +44,7 @@
   color: black;
 }
 
-.text{
+.text {
   margin-left: 1rem;
   margin-bottom: 1rem;
   font-size: 1.3rem;
@@ -61,7 +61,7 @@
   color: gray;
 }
 
-.display p{
+.display p {
   font-size: 1.3rem;
 }
 
